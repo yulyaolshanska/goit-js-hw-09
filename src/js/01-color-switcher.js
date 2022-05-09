@@ -9,6 +9,7 @@ let timerId = null;
 
 refs.startBtn.addEventListener("click", onStartSwitcher);
 refs.stopBtn.addEventListener("click", onStopSwitcher);
+refs.stopBtn.setAttribute("disabled", true);
 
 console.log(refs.startBtn)
 function getRandomHexColor() {
