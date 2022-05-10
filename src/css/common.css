@@ -17,10 +17,7 @@ img {
   max-width: 100%;
 }
 
-div {
-    display: flex;
-    justify-content: center;
-}
+
 .button {
  cursor: pointer;
     height: 44px;
@@ -46,8 +43,10 @@ div {
    
 }
 
-.timer {
+.timer, .switcher {
   margin-top: 30px;
+   display: flex;
+    justify-content: center;
 }
 
 .field {
