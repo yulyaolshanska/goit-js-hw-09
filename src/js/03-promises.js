@@ -30,23 +30,25 @@ function generatePromises(delay, step, amount) {
       createPromise(i, delay)
         .then(({ position, delay }) => {
           Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`,{
-    timeout: 10000,
+    timeout: 6000,
   });
         })
         .catch(({ position, delay }) => {
           Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`,{
-    timeout: 10000,
+    timeout: 6000,
   });
         });
+      //  console.log(delay);
       delay += step;
+      // console.log(delay);
     }
   }
 
 function onSubmit(evt) {
   evt.preventDefault();
-  const delay = delayEl.value;
-  const step = stepEl.value;
-  const amount = amountEl.value; 
+  const delay = +delayEl.value;
+  const step = +stepEl.value;
+  const amount = +amountEl.value; 
   generatePromises(delay, step, amount);
 }
 
