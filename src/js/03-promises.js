@@ -33,12 +33,12 @@ function generatePromises(delay, step, amount) {
       createPromise(i, delay)
         .then(({ position, delay }) => {
           Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, {
-          timeout: 10000,
+          timeout: 6000,
         });
       })
         .catch(({ position, delay }) => {
           Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, {
-          timeout: 10000,
+          timeout: 6000,
         });
         });
           console.log(delay)
