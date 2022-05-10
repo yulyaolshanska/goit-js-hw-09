@@ -38,9 +38,7 @@ function generatePromises(delay, step, amount) {
     timeout: 6000,
   });
         });
-      //  console.log(delay);
       delay += step;
-      // console.log(delay);
     }
   }
 
