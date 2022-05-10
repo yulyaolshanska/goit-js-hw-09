@@ -21,7 +21,7 @@ div {
     display: flex;
     justify-content: center;
 }
-button {
+.button {
  cursor: pointer;
     height: 44px;
     min-width: 64px;
@@ -72,7 +72,7 @@ button {
      /* box-shadow: 5px 2px 10px rgb(38 75 38); */
 }
 
-input {
+.input {
   display: inline-block;
     padding: 10px;
     border-radius: 5px;

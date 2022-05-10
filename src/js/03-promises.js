@@ -13,34 +13,39 @@ const { submitEl, delayEl, stepEl, amountEl } = refs;
 submitEl.addEventListener("submit", onSubmit);
 
 function createPromise(position, delay) {
-   return new Promise((resolve, reject) => {
-     const shouldResolve = Math.random() > 0.3;
-     setTimeout(() => {
+  return new Promise((resolve, reject) => {
+    console.log(delay)
+    const shouldResolve = Math.random() > 0.3;
+    setTimeout(() => {
       if (shouldResolve) {
-        resolve({position, delay});
+        resolve({ position, delay });
       } else {
-        reject({position, delay});
+        reject({ position, delay });
       }
     }, delay)
-  })
-};
+  });
+    
+}
+
 
 function generatePromises(delay, step, amount) {
     for (let i = 1; i <= amount; i += 1) {
       createPromise(i, delay)
         .then(({ position, delay }) => {
-          Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`,{
-    timeout: 6000,
-  });
-        })
-        .catch(({ position, delay }) => {
-          Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`,{
-    timeout: 6000,
-  });
+          Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, {
+          timeout: 10000,
         });
-      delay += step;
-    }
+      })
+        .catch(({ position, delay }) => {
+          Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, {
+          timeout: 10000,
+        });
+        });
+          console.log(delay)
+    delay += step;
   }
+}
+
 
 function onSubmit(evt) {
   evt.preventDefault();
@@ -49,6 +54,7 @@ function onSubmit(evt) {
   const amount = +amountEl.value; 
   generatePromises(delay, step, amount);
 }
+
 
 
 
